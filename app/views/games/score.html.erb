@@ -1,0 +1,18 @@
+<h1>Your score:</h1>
+
+<% if !@contain && !@exist %>
+  <p><strong>Sorry!</strong> but <%= @attempt %> can't be build out of <%= params[:letters] %> and is not a valid English world!</p>
+<% end %>
+<% if @contain && !@exist %>
+ <p><strong>Sorry!</strong> but <%= @attempt %> is not a valid English world!</p>
+<% end %>
+<% if !@contain && @exist %>
+  <p><strong>Sorry!</strong> but <%= @attempt %> can't be build out of <%= params[:letters] %> !</p>
+<% end %>
+<% if @contain && @exist %>
+  <p><strong>Congratulations!</strong><%= @attempt %> is a valid English world!</p>
+  <h2>You win <%= @score %> points </h2>
+  <p>Your total score is: <%= @totalScore %></p>
+<% end %>
+
+<%= link_to "Play again", new_path %>
